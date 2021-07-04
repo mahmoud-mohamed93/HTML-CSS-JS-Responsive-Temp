@@ -1,15 +1,21 @@
-:root {
-    --menu-color: #212329;
-}
+/* Header */
 header {
     background-color: var(--sec-color);
     padding: 30px 0 0 0;
-    transition: 0.5s;
-    border-bottom: 7px solid #ccc;
+    border-bottom: 6px solid #ccc;
 }
 header .navbar {
     display: grid;
     grid-template-columns: 3fr 1fr auto;
+}
+.header.fixed-menu {
+    position: fixed;
+    width: 100%;
+    background-color: var(--menu-color);
+    padding: 20px 0 0 0;
+    z-index: 999;
+    opacity: 0.9;
+    transition: var(--main-duration);
 }
 
 /* Logo */
@@ -56,11 +62,11 @@ header .navbar .nav-menu .nav-links {
     padding: 0px 40px;
     float: left;
     height: 50px;
-    border-bottom: 7px solid #ccc;
+    border-bottom: 6px solid #ccc;
 }
-header .navbar .nav-menu .nav-links.less-height {
+header .navbar .nav-menu .nav-links.height-less {
     height: 45px;
-    transition: 0.5s;
+    transition: var(--main-duration);
 }
 @media (min-width: 768px) and (max-width: 991.98px){
     header .navbar .nav-menu .nav-links {
@@ -74,61 +80,19 @@ header .navbar .nav-menu .nav-links.active {
     color: #10cab7;
     border-bottom: 7px solid #10cab7;
 }
-.header.fixed-menu {
-    position: fixed;
-    width: 100%;
-    background-color: var(--menu-color);
-    padding: 20px 0 0 0;
-    z-index: 999;
-    opacity: 0.9;
-    transition: 0.5s;
-}
+
 @media (max-width: 767.98px) {
     header {
         position: relative;
-        padding: 30px 0 30px 0;
-        transition: none;
+        padding: 27px  0;
+        border-bottom: 0;
     }
-    header .navbar .nav-menu {
-        display: grid;
-        grid-template-columns: auto;
-        gap: 0;
-        background-color: var(--main-color);
-        position: absolute;
-        width: 100%;
-        top: 80px;
-        left : -100%;
-        opacity: 0;
-        transition: var(--main-duration);
-        z-index: 999;
-    }
-    header .navbar .nav-menu .nav-links {
-        text-align: center;
-        line-height: 60px;
-        width: 100%;
-        display: table;
-        padding: 0;
-        border: 0;
-        border-radius: 0;
-    }
-    header .navbar .nav-menu .nav-links:hover {
-        color: #2c4755;
-        background-color: #fff;
-        border: 0;
-        transition: var(--main-duration);
-    }
-    header .navbar .nav-menu .nav-links.active {
-        color: #fff;
-        background-color: var(--main-color);
-        border: 0;
-        transition: var(--main-duration);
-    }
-    header .navbar .nav-menu.active {
-        background-color: var(--menu-color);
-        left: 0;
+    .header.fixed-menu {
+        padding: 20px 0;
         opacity: 1;
-        transition: 0.3s ease-out;
     }
+
+    /* Menu Toggle */
     .menu-toggle .bar {
         display: block;
         cursor: pointer;
@@ -142,14 +106,54 @@ header .navbar .nav-menu .nav-links.active {
     #mobile-menu.is-active .bar:nth-last-child(3) {
         transform: translateY(8px) rotate(45deg);
     }
-    .header.fixed-menu {
+
+    /* Nav Menu */
+    header .navbar .nav-menu {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 0;
         background-color: var(--menu-color);
-        padding: 20px 0;
-        opacity: 1;
+        position: absolute;
+        width: 100%;
+        top: 74px;
+        left: -100%;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 999;
     }
-    header .navbar .nav-menu.opacity-less {
-        opacity: 0.9;
-        top: 60px;
-        transition: 0.5s;
+        header .navbar .nav-menu.active {
+        background-color: var(--menu-color);
+        left: 0;
+        opacity: 1;
+        pointer-events: auto;
+        transition: var(--main-duration) ease-out;
+    }
+    
+    /* Nav Links */
+    header .navbar .nav-menu .nav-links {
+        width: 100%;
+        line-height: 60px;
+        display: table;
+        text-align: center;
+        padding: 0;
+        color: var(--sec-color);
+        background-color: var(--section-background);
+        border-bottom: 2px solid;
+        border-color: #ddd;
+        border-radius: 0;
+    }
+    header .navbar .nav-menu .nav-links:hover {
+        position: relative;
+        background-color: #ddd;
+        border-bottom: 2px solid;
+        border-color: #ddd;
+        transition: var(--main-duration);
+    }
+    header .navbar .nav-menu .nav-links.active {
+        color: #fff;
+        background-color: var(--main-color);
+        border-bottom: 2px solid;
+        border-color: var(--main-color);
+        transition: var(--main-duration);
     }
 }

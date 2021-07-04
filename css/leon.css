@@ -3,8 +3,9 @@
     scroll-behavior: smooth;
     --main-color: #10cab7;
     --sec-color: #2c4755;
-    --section-padding: 60px;
+    --menu-color: #212329;
     --section-background: #f6f6f6;
+    --section-padding: 60px;
     --main-duration: 0.3s;
 }
 /* End Variables */
@@ -135,7 +136,7 @@ body {
     font-size: 3rem;
 }
 .features .feet h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 30px 0;
     font-weight: 800;
 }
@@ -362,7 +363,7 @@ body {
 }
 .footer-content i{
     color: var(--main-color);
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 /* End Footer */
 
@@ -387,10 +388,6 @@ body {
         padding-left: 0;
         margin-top: 100px;
     }
-    .about .about-content .about-text hr {
-        width: 40%;
-        margin: 0 auto 10px;
-    }
     .contact .contact-content .contact-text .label {
         font-size: 1.5rem;
     }
@@ -404,6 +401,21 @@ body {
       }
     .services .columns .col .item {
         flex-direction: column;
+        text-align: center;
+    }
+    .services .columns .col .item i {
+        font-size: 3rem;
+    }
+    .services .columns .col .item .services-text h4 {
+        margin: 0 0 30px;
+        font-size: 1rem;
+        font-weight: 800;
+    }
+    .services .columns .col .item .services-text p {
+        font-weight: 400;
+        line-height: 1.6;
+    }
+    .portfolio .projects .project {
         text-align: center;
     }
     .portfolio .projects .project:nth-child(3) {
@@ -428,6 +440,12 @@ body {
         margin-left: auto;
         justify-content: center;
     }
+    .footer-content {
+        font-size: 1rem;
+    }
+    .footer-content i{
+        font-size: 1rem;
+    }
 }
 /* x-Small Screens*/
 @media (max-width: 575.98px) {
@@ -435,15 +453,21 @@ body {
         font-size: 2.5rem;
         right: 10px;
       }
+      .landing .intro-text h1 {
+        font-size: 2rem;
+      }
+      .landing .intro-text p {
+        font-size: 1rem;
+    }
     .special-heading-1 {
-        font-size: 3rem;
+        font-size: 4rem;
     }
     .special-heading-2 {
-        font-size: 3rem;
+        font-size: 4rem;
     }
     .special-heading-1 + p,
     .special-heading-2 + p {
-        font-size: .6rem;
+        font-size: 0.9rem;
         margin: -22px 0 0 0;
     }
     .features .container {
@@ -452,11 +476,6 @@ body {
     .services .columns {
         grid-template-columns: 1fr;
         gap: 0;
-    }
-    .services .columns .col .item .services-text p {
-        height: auto;
-        width: 90%;
-        margin: auto;
     }
     .portfolio .projects {
         display: flex;
@@ -484,6 +503,16 @@ body {
     .contact .contact-content .social p {
         font-size: .9rem;
         margin-bottom: 20px;
+    }
+    .contact .contact-content .contact-text .label {
+        font-size: 1.2rem;
+    }
+    .footer-content {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    .footer-content i{
+        font-size: 0.9rem;
     }
 }
 /* Small Screens*/

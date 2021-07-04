@@ -55,31 +55,29 @@ let header = document.querySelector('.header'),
 window.addEventListener('scroll', fixedMenu);
 
 function fixedMenu () {
-    if (window.pageYOffset >= headerHeight - 10) {
+    if (window.pageYOffset >= headerHeight + 200) {
         header.classList.add('fixed-menu');
         for (i = 0; i < navLinks.length; i++)
-        navLinks[i].classList.add('less-height');
+        navLinks[i].classList.add('height-less');
     } else {
         header.classList.remove('fixed-menu');
         for (i = 0; i < navLinks.length; i++)
-        navLinks[i].classList.remove('less-height');
+        navLinks[i].classList.remove('height-less');
     }
 };
 //End Fixed Menu
 
-//Start nav-menu Opacity
+//Start nav menu Height less
 headerHeight = header.offsetHeight;
 
-window.addEventListener('scroll', opacityLess);
-
-function opacityLess () {
-    if (window.pageYOffset >= headerHeight - 25) {
-        navMenu.classList.add('opacity-less');
-    } else {
-        navMenu.classList.remove('opacity-less');
+window.addEventListener('scroll', function() {
+    if (window.pageYOffset >= headerHeight + 200) {
+        navMenu.style.top = '60px';
     }
-};
-//End nav-menu Opacity
+});
+
+
+//End nav menu Height less
 
 //Start Active Link
 let menuLinks = document.querySelectorAll('.nav-menu li .nav-links');
